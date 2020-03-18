@@ -65,15 +65,8 @@ original_dataset_features = ['duration',
 feature_names = [str(name) for name in os.getenv('MODEL_FEATURES').split(',')]
 
 
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
-
-class InvalidUsageError(Exception):
-    pass
-
 #https://flask.palletsprojects.com/en/1.1.x/quickstart/#the-request-object
-@app.route('/predict', methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
 def predict():
     error = None
     y_pred = None
